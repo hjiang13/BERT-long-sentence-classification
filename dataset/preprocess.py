@@ -69,7 +69,7 @@ def preprocess_20newsgroups(input_dir, file_name_vocabulary, output_dir):
                 new = os.path.basename(path_new)
                 new_str = _clean_new(path_new, vocabulary)
                 if len(new_str) > 0:
-                    df = df.append({'new': new_str, 'group': group}, ignore_index=True)
+                    df = df._append({'new': new_str, 'group': group}, ignore_index=True)
                 else:
                     print(f"Empty new: {path_new}")
         df.to_csv(os.path.join(output_dir, f"{section}.tsv"), sep='\t', encoding='utf-8', index=False, header=True)
